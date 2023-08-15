@@ -3,10 +3,13 @@
     <form #f='ngForm' (ngSubmit)="onLogin()">
         <div>
             <mat-form-field>
-                <mat-label>Input</mat-label>
-                <input matInput>
+                <mat-label>Nazwa użytkownika</mat-label>
+                <input [(ngModel)]="userData.username" matInput required minlength="4" maxlength="30">
               </mat-form-field>
         </div>
+        <ng-container *ngIf="f.controls?.['username']?.invalid && f.controls?.['username']?.touched && f.controls?.['username']?.dirty">
+        <app-alert *ngIf="f.controls?.['username']?.errors" [title]="'Ta kontrolka musi mieć od 4 do 30 znaków.'"></app-alert>
+    </ng-container>
         <div>
             <mat-form-field>
                 <mat-label>Hasło</mat-label>
