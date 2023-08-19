@@ -1,2 +1,2 @@
 # rejestr-klientow
-from udemy
+from udemy course
